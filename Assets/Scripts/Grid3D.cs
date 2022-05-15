@@ -4,9 +4,9 @@ using System;
 using UnityEngine;
 
 public class Grid3D {
-    private int xSize;
-    private int ySize;
-    private int zSize;
+    private int xSize { get; set; }
+    private int ySize { get; set; }
+    private int zSize { get; set; }
 
     private Vector3 corner;
 
@@ -29,7 +29,7 @@ public class Grid3D {
         int xIndex = (int)(vector.x - corner.x);
         int yIndex = (int)(vector.y - corner.y);
         int zIndex = (int)(vector.z - corner.z);
-        return new int[] { xIndex, ySize, zIndex };
+        return new int[] { xIndex, yIndex, zIndex };
     }  
 
     public Vector3 getPosition(int[] index)
@@ -45,5 +45,20 @@ public class Grid3D {
                 (float)index[1] + 0.5f + corner.y,
                 (float)index[2] + 0.5f + corner.z
             );
+    }
+
+    public int getXsize()
+    {
+        return xSize;
+    }
+
+    public int getYsize()
+    {
+        return ySize;
+    }
+
+    public int getZsize()
+    {
+        return zSize;
     }
 }
